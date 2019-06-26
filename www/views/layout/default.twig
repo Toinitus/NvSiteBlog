@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Bread Beer Shop</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+</head>
+<body>
+	<header class="menu">
+		<input type="checkbox" class="burger">
+		<nav>
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/boutique">Boutique</a></li>
+				{% if userConnected %}
+					<li><a href="/bonCommande">Bon de commande</a></li>
+					<li><a href="/profil">profil</a></li>
+					<li><a href="/deconnexion">deconnexion</a></li>
+				{% else %}
+					<li><a href="/login">Connexion</a></li>
+					<li><a href="/inscription">inscription</a></li>
+				{% endif %}
+				<li><a href="/blog">Blog</a></li>
+			</ul>
+		</nav>
+</header>
+		{% block content %}
+		{% endblock %}		
+	<footer>
+		<nav>
+			<ul>
+				<li><a href="#">Mentions Légales</a></li>
+				<li><a href="#">CGV</a></li>
+			</ul>
+		</nav>
+	</footer>
+	<script type="text/javascript" src="assets/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+{% extends "layout/default.twig" %}
+
+{% block  content %}
+
+<div class="col-md-6 px-md-5 mb-5">
+    <div class="loginForm">
+        <div class="pt-3 pl-3">
+            <h1>S'inscrire</h1>
+        </div>
+        <div>
+            <form method="post" action="" name="form2" class="p-4">
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        <label for="nom">Nom d'utilisateur</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <i class="fa fa-user"></i>
+                                </div>
+                            </div>
+                            <input type="text" class="form-control" required="required" name="username">
+                        </div>
+                    </div>
+                    <div class="form-group col-12">
+                        <label for="email">Email</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <i class="fa fa-at"></i>
+                                </div>
+                            </div>
+                            <input type="email" class="form-control" required="required" name="email">
+                        </div>
+                    </div>
+                    <div class="form-group col-12 col-md-6">
+                        <label for="prenom">Mot de passe</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <i class="fa fa-unlock-alt"></i>
+                                </div>
+                            </div>
+                            <input type="password" class="form-control" required="required" name="password">
+                        </div>
+                    </div>
+                    <div class="form-group col-12 col-md-6">
+                        <label for="prenom">Confirmation mot de passe</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <i class="fa fa-unlock-alt"></i>
+                                </div>
+                            </div>
+                            <input type="password" class="form-control" required="required" name="passwordConfirmed">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-12 col-md-6">
+                        <label for="nom">Nom</label>
+                        <input type="text" class="form-control" required="required" name="nom">
+                    </div>
+                    <div class="form-group col-12 col-md-6">
+                        <label for="prenom">Prénom</label>
+                        <input type="text" class="form-control" required="required" name="prenom">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-12 col-md-6">
+                        <label for="tel">Téléphone</label>
+                        <input type="text" class="form-control" required="required" name="tel">
+                    </div>
+                    <div class="form-group col-12 col-md-6">
+                        <label for="ville">Ville</label>
+                        <input type="text" class="form-control" required="required" name="ville">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        <label for="adresse">Adresse</label>
+                        <input type="text" class="form-control" required="required" name="adresse">
+                    </div>
+                    <div class="form-group col-12 col-md-6">
+                        <label for="pays">Pays</label>
+                        <input type="text" class="form-control" required="required" name="pays">
+                    </div>
+                    <div class="form-group col-12 col-md-6">
+                        <label for="codePostal">Code postale</label>
+                        <input type="text" class="form-control" required="required" name="codePostal">
+                    </div>
+                </div>
+                <button type="submit" name="sendForm2" value="sendForm2" for="form2" class="btn btn-primary">Inscription</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "layout/default.twig" %}
+
+{% block content %}
+<section class="row">
+    <!-- Boucle sur $bieres[] qui est un tableau sortie de SQL -->
+    {% for beer in beerArray %}
+    <div class="col-md-4 my-4">
+        <div class="row box">
+            <!-- HEADER -->
+            <div class="col-12">
+                <h3 class="my-3 text-center text-uppercase">{{ beer.title|e }}</h3>
+            </div>
+            <!-- IMG -->
+            <div class="col-12 box-borders">
+                <img class="my-3 mx-auto d-block" src="{{ beer.img|e }}" alt="{{ beer.title|e }}" height="250" />
+            </div>
+            <!-- Description -->
+            <div class="col-12 ">
+                <p class="my-1">{{ beer.content|e }}</p>
+            </div>
+            <!-- Prix -->
+            <div class="col-12">
+                <h5 class="my-3 text-center">{{(beer.price * constant.TVA)|number_format(2, ',', '.')}}€ TTC</h5>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</section>
+{% endblock %}

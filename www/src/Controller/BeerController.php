@@ -4,14 +4,14 @@ namespace App\Controller;
 use \Core\Controller\Controller;
 
 
-class BoutiqueController extends Controller
+class BeerController extends Controller
 {
 
 
 
     public function __construct()
     {
-        $this->loadModel('boutique');
+        $this->loadModel('beer');
     }
 
 
@@ -20,13 +20,13 @@ class BoutiqueController extends Controller
     public function show ()
     {
         $tva = constant("TVA");
-        $beerArray = $this->boutique->selectBeer();
+        $beerArray = $this->beer->selectBeer();
         $tvaArray =[];
 
 
 
         $this->render(
-            'boutique/show',
+            'beer/show',
             [
                 "beerArray" => $beerArray
             ]

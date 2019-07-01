@@ -5,8 +5,19 @@ use Core\Model\Table;
 
 class UsersTable extends Table
 {
+    public function verifMail($mail){
 
-    //return $this->query("SELECT id_user")
+    return $this->query("SELECT * FROM users WHERE mail = :mail", [':mail'=> $mail], true);
 
+        }
 
+    public function userCreate($resultUser){
+        return $this->query (
+            "INSERT INTO users (username, lastname, firstname, address, zipCode, city, country, phone, mail, password)
+            VALUES (:username, :lastname, :firstname, :address, :zipCode, :city, :country, :phone, :mail, :password)",
+            $resultUser
+        );
+    
+    }
 }
+

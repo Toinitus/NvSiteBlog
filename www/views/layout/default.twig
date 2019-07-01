@@ -13,8 +13,8 @@
 		<nav>
 			<ul>
 				<li><a href="/">Home</a></li>
-				<li><a href="/boutique">Boutique</a></li>
-				{% if userConnected %}
+				<li><a href="/beer">Boutique</a></li>
+				{% if session != NULL %}
 					<li><a href="/bonCommande">Bon de commande</a></li>
 					<li><a href="/profil">profil</a></li>
 					<li><a href="/deconnexion">deconnexion</a></li>

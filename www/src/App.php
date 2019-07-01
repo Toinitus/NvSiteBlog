@@ -28,6 +28,9 @@ class App
 
     public static function load()
     {
+        if (session_status() != PHP_SESSION_ACTIVE){
+            session_start();
+        }
         define ('TVA', 1.2);
         if (getenv("ENV_DEV")) {
             $whoops = new \Whoops\Run;

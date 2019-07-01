@@ -1,7 +1,6 @@
 <?php
 require_once '/var/www/vendor/autoload.php';
 require_once 'beerArray.php';
-
 $pdo = new PDO('mysql:host=blog.mysql;dbname=blog', 'userblog', 'blogpwd');
 //creation tables
 echo "[";
@@ -69,9 +68,6 @@ $pdo->exec("CREATE TABLE `orders` (
             PRIMARY KEY(id)
         )");
 echo "||";
-
-
-
 //vidage table
 $pdo->exec('SET FOREIGN_KEY_CHECKS = 0');
 $pdo->exec('TRUNCATE TABLE post_category');
@@ -96,7 +92,6 @@ for ($i = 0; $i < 50; $i++) {
     $posts[] = $pdo->lastInsertId();
     echo "|";
 }
-
 for ($i = 0; $i < 5; $i++) {
     $pdo->exec("INSERT INTO category SET
         name='{$faker->sentence(3, false)}',
@@ -104,7 +99,6 @@ for ($i = 0; $i < 5; $i++) {
     $categories[] = $pdo->lastInsertId();
     echo "|";
 }
-
 foreach ($posts as $post) {
     $randomCategories = $faker->randomElements($categories, 2);
     foreach ($randomCategories as $category) {
@@ -114,23 +108,16 @@ foreach ($posts as $post) {
         echo "|";
     }
 }
-
 $password = password_hash('admin', PASSWORD_BCRYPT);
 echo "||";
-
-$pdo->exec("INSERT INTO users SET
-        username='admin',
-        password='{$password}'");
-
+$pdo->exec("INSERT INTO `users` (`username`, `lastname`, `firstname`, `address`, `zipCode`, `city`, `country`, `phone`, `mail`, `password`)
+VALUES ('admin', 'nom', 'prenom', 'rue admin', '01010', 'admin city', 'admin country', '0101010101', 'admin@admin.com', '{$password}');'");
 echo "||";
-
-
 $sql = "INSERT INTO beer (title, img, content, price)
 VALUES (:title, :img, :content, :price)";
-
 $statement = $pdo->prepare($sql);
-
 foreach ($beerArray as $value) {
+    echo "|";
         $statement->execute([
         ':title'	=> $value[0],
         ':img'		=> $value[1],
@@ -138,5 +125,4 @@ foreach ($beerArray as $value) {
         ':price'	=> $value[3]
     ]);
 }
-
 echo "||]\n";

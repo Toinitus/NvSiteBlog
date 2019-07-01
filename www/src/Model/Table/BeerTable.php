@@ -3,7 +3,7 @@ namespace App\Model\Table;
 
 use Core\Model\Table;
 
-class BoutiqueTable extends Table
+class BeerTable extends Table
 {
 
     public  function    selectBeer()

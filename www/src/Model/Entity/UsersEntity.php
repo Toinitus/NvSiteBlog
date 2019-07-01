@@ -14,6 +14,7 @@ class UsersEntity extends Entity
     private $phone;
     private $mail;
     private $password;
+    
     public function getId()
     {
         return $this->id_user;

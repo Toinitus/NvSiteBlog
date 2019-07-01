@@ -24,7 +24,7 @@ class Controller
             $loader = new \Twig\Loader\FilesystemLoader(dirname(dirname(__dir__)) . '/views/');
             $this->twig = new \Twig\Environment($loader);
             $this->twig->addGlobal("constant", get_defined_constants());
-            $this->twig->addGlobal("session", session_start());
+            $this->twig->addGlobal("session", $_SESSION);
         }
         return $this->twig;
     }

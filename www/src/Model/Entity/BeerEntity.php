@@ -1,7 +1,7 @@
 <?php
 namespace App\Model\Entity;
 use Core\Model\Entity;
-class BoutiqueEntity extends Entity
+class BeerEntity extends Entity
 {
     private $title;
     private $img;
@@ -19,7 +19,7 @@ class BoutiqueEntity extends Entity
     {
         return $this->content;
     }
-    public function getPrice() :int
+    public function getPrice() :float
     {
         return $this->price;
     }

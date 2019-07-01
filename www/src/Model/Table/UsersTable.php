@@ -19,5 +19,10 @@ class UsersTable extends Table
         );
     
     }
+
+    public function updateForm1($username, $password, $id){
+        return $this->query("UPDATE users  SET username = :username, password = :password WHERE id = :id",  [':username' => $username, ':password' => $password, ':id' => $id]);
+
+    }
 }
 

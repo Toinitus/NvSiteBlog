@@ -94,13 +94,35 @@ class UsersController extends Controller
     public function profil()
     {
         if(isset($_SESSION['user'])){
+            if($_POST['sendForm1'] == 'sendForm1'){
+              $result = $this->updateUsernamePassword();
+                if($result){
+                    $_SESSION['user'] = $user
+                    $_SESSION['alert'] = 'Success'
+                    header('Location: /profil');
+                }
+            }
             $this->render("users/profil");
         } else {
-            $url = $this->generateUrl('login');
-            header('Location: ' . $url);
+            header('Location: /profil');
         }
     }
 
+    private function updateUsernamePassword(){
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $id = $_SESSION['user']->getId;
+        $passwordVerif = $_POST['passwordVerif'];
+        if(!empty($username && $password && $passwordVerif)){
+            if( $password == $passwordVerif){
+                $password = password_hash(htmlspecialchars($password), PASSWORD_BCRYPT);
+                return $this->users->updateForm1($username, $password, $id);
+
+            
+            }
+
+        }
+    }
 
 
 

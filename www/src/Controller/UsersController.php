@@ -96,9 +96,9 @@ class UsersController extends Controller
         if(isset($_SESSION['user'])){
             if($_POST['sendForm1'] == 'sendForm1'){
               $result = $this->updateUsernamePassword();
-                if($result){
-                    $_SESSION['user'] = $user
-                    $_SESSION['alert'] = 'Success'
+            if($result){
+                   /* $_SESSION['user'] = $user
+                    $_SESSION['alert'] = 'Success'*/
                     header('Location: /profil');
                 }
             }
